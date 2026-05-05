@@ -1,0 +1,11 @@
+def run_algorithm(algo_name, distance_matrix, params=None):
+    if algo_name == "backtracking":
+        from algorithms.backtracking import solve_tsp_backtracking
+        return solve_tsp_backtracking(distance_matrix)
+
+    elif algo_name == "ba":
+        from algorithms.bat_algorithm import solve_tsp_ba
+        return solve_tsp_ba(distance_matrix, params)
+
+    else:
+        raise ValueError("Unknown algorithm")
