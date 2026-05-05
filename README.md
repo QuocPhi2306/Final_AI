@@ -1,5 +1,4 @@
-# Final_AI
-
+# Đề tài: Giải bài toán người du lịch (traveller problem, travelling salesman problem) bằng Giải thuật quay lui (Backtracking)
 
 ---
 
