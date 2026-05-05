@@ -1,6 +1,6 @@
 import random
 import time
-from core.utils import calculate_total_distance
+from core.utils import build_result, calculate_total_distance
 
 def random_path(n):
     path = list(range(n))
@@ -18,6 +18,9 @@ def solve_tsp_ba(distance_matrix, params):
     n = len(distance_matrix)
     num_bats = params["num_bats"]
     max_iter = params["max_iter"]
+
+    if num_bats <= 0 or max_iter <= 0:
+        raise ValueError("Bat Algorithm requires positive num_bats and max_iter")
 
     bats = [random_path(n) for _ in range(num_bats)]
     fitness = [calculate_total_distance(p, distance_matrix) for p in bats]
@@ -43,8 +46,4 @@ def solve_tsp_ba(distance_matrix, params):
 
     end_time = time.time()
 
-    return {
-        "path": best_path,
-        "cost": best_cost,
-        "time": end_time - start_time
-    }
+    return build_result(best_path, best_cost, end_time - start_time)
