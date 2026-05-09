@@ -212,5 +212,3 @@ Phân tích:
   * Quan sát tốc độ hội tụ
 
 ---
-
-
