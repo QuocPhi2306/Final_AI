@@ -25,6 +25,7 @@ def solve_tsp_ba(distance_matrix, params):
     best_idx = fitness.index(min(fitness))
     best_path = bats[best_idx][:]
     best_cost = fitness[best_idx]
+    history = [best_cost]
 
     start_time = time.time()
 
@@ -41,10 +42,13 @@ def solve_tsp_ba(distance_matrix, params):
                     best_cost = new_cost
                     best_path = new_path[:]
 
+        history.append(best_cost)
+
     end_time = time.time()
 
     return {
         "path": best_path,
         "cost": best_cost,
-        "time": end_time - start_time
+        "time": end_time - start_time,
+        "history": history
     }

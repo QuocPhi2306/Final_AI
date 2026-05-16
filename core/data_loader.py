@@ -1,6 +1,6 @@
 import numpy as np
 
-def load_from_txt(file_path):
+def load_from_txt(file_path, return_coords=False):
     with open(file_path, "r") as f:
         lines = f.readlines()
 
@@ -11,13 +11,15 @@ def load_from_txt(file_path):
         x, y = map(float, line.strip().split())
         coords.append((x, y))
 
-    return build_distance_matrix(coords)
+    matrix = build_distance_matrix(coords)
+    return (coords, matrix) if return_coords else matrix
 
 
-def generate_random_cities(n, seed=42):
+def generate_random_cities(n, seed=42, return_coords=False):
     np.random.seed(seed)
     coords = np.random.rand(n, 2) * 100
-    return build_distance_matrix(coords)
+    matrix = build_distance_matrix(coords)
+    return (coords, matrix) if return_coords else matrix
 
 
 def build_distance_matrix(coords):
