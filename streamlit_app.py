@@ -113,6 +113,10 @@ def initialize_state():
         st.session_state.last_result = None
     if "last_coords" not in st.session_state:
         st.session_state.last_coords = None
+    if "last_n" not in st.session_state:          
+        st.session_state.last_n = None             
+    if "last_algorithm" not in st.session_state:  
+        st.session_state.last_algorithm = None     
 
 
 def main():
@@ -138,7 +142,14 @@ def main():
     algorithm = "ba" if algorithm_choice == "Bat Algorithm" else "backtracking"
     if algorithm == "backtracking" and n > 12:
         st.warning("Backtracking có thể chậm với số thành phố lớn hơn 12.")
-
+# Reset khi thay đổi cấu hình
+    if st.session_state.last_n != n or st.session_state.last_algorithm != algorithm_choice:
+        st.session_state.best_cost = None
+        st.session_state.best_run = None
+        st.session_state.last_result = None
+        st.session_state.last_coords = None
+        st.session_state.last_n = n
+        st.session_state.last_algorithm = algorithm_choice
     if run_button:
         coords, matrix = generate_random_cities(n, return_coords=True)
         params = BA_PARAMS if algorithm == "ba" else None
