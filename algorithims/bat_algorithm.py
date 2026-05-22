@@ -62,7 +62,8 @@ def solve_tsp_ba(distance_matrix, params):
     best_idx = fitness.index(min(fitness))
     best_path = bats[best_idx][:]
     best_cost = fitness[best_idx]
- 
+    history = [best_cost]
+
     start_time = time.time()
  
     for t in range(1, max_iter + 1):          # BUG FIX: dùng t thay _ để tính pulse_rate
@@ -99,14 +100,16 @@ def solve_tsp_ba(distance_matrix, params):
                 if new_cost < best_cost:
                     best_cost = new_cost
                     best_path = new_path[:]
- 
-        # Convergence tracking (lưu sau mỗi iteration)
-        history.append(best_cost)
- 
-    end_time = time.time()
- 
-    # BUG FIX: build_result phải gọi trên 1 dòng
-    result = build_result(best_path, best_cost, end_time - start_time)
-    result["convergence"] = history
- 
-    return result
+                history.append(best_cost)
+
+                end_time = time.time()
+
+                result = build_result(
+                       best_path,
+                       best_cost,
+                       end_time - start_time
+                       )
+
+                result["history"] = history
+
+                return result
