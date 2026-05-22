@@ -70,7 +70,7 @@ result = {
 
 ---
 
-## 👤 Diệu – Giải thuật chính xác (Backtracking & Branch and Bound)
+## 👤 Diệu – Giải thuật quay lui (Backtracking)
 
 ### 🎯 Mục tiêu
 
@@ -83,19 +83,7 @@ Tìm nghiệm tối ưu tuyệt đối (optimal solution) cho bài toán TSP v�
 * Sử dụng đệ quy để sinh tất cả hoán vị đường đi
 * Duyệt toàn bộ không gian nghiệm
 
-#### 2. Tối ưu hóa bằng Branch and Bound (Cắt tỉa)
-
-Áp dụng điều kiện cắt:
-
-```python
-if current_cost >= best_cost:
-    prune
-```
-
-* Nếu chi phí hiện tại đã lớn hơn nghiệm tốt nhất → bỏ nhánh
-* Giảm đáng kể số lượng trạng thái cần duyệt
-
-#### 3. Xác định giới hạn khả thi
+#### 2. Xác định giới hạn khả thi
 
 * Thực nghiệm để tìm giá trị `n` tối đa
 * Dự kiến:
