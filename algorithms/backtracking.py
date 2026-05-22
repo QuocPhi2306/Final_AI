@@ -1,5 +1,5 @@
 import time
-from core.utils import calculate_total_distance
+from core.utils import build_result
 
 def solve_tsp_backtracking(distance_matrix):
     n = len(distance_matrix)
@@ -17,19 +17,17 @@ def solve_tsp_backtracking(distance_matrix):
             return
 
         if current_cost >= best_cost:
-            return  # prune
+            return
 
         for i in range(n):
             if not visited[i]:
                 visited[i] = True
                 path.append(i)
-
                 backtrack(
                     path,
                     visited,
                     current_cost + distance_matrix[path[-2]][i]
                 )
-
                 visited[i] = False
                 path.pop()
 
@@ -42,8 +40,4 @@ def solve_tsp_backtracking(distance_matrix):
 
     end_time = time.time()
 
-    return {
-        "path": best_path,
-        "cost": best_cost,
-        "time": end_time - start_time
-    }
+    return build_result(best_path, best_cost, end_time - start_time)

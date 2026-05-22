@@ -212,3 +212,20 @@ Phân tích:
   * Quan sát tốc độ hội tụ
 
 ---
+
+## Chạy giao diện Streamlit
+
+Sử dụng giao diện web Streamlit bằng lệnh:
+
+```powershell
+streamlit run streamlit_app.py
+```
+
+Nếu muốn chạy bản trong thư mục `Final_AI`:
+
+```powershell
+cd Final_AI
+streamlit run streamlit_app.py
+```
+
+

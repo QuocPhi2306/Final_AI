@@ -66,7 +66,7 @@ def solve_tsp_ba(distance_matrix, params):
 
     start_time = time.time()
  
-    for t in range(1, max_iter + 1):          # BUG FIX: dùng t thay _ để tính pulse_rate
+    for t in range(1, max_iter + 1):
         for i in range(num_bats):
  
             # --- Frequency update ---
@@ -78,10 +78,9 @@ def solve_tsp_ba(distance_matrix, params):
             new_path = apply_velocity(bats[i], velocity)
  
             # --- Local search (khi pulse rate thấp → explore) ---
-            # BUG FIX: new_path = local_search phải NẰM TRONG if block
             if random.random() > pulse_rate[i]:
-                new_path = local_search(best_path)
-    
+                new_path = local_search(bats[i])
+ 
             # --- Tính fitness nghiệm mới ---
             new_cost = calculate_total_distance(new_path, distance_matrix)
  
@@ -100,16 +99,14 @@ def solve_tsp_ba(distance_matrix, params):
                 if new_cost < best_cost:
                     best_cost = new_cost
                     best_path = new_path[:]
-                history.append(best_cost)
-
-                end_time = time.time()
-
-                result = build_result(
-                       best_path,
-                       best_cost,
-                       end_time - start_time
-                       )
-
-                result["history"] = history
-
-                return result
+ 
+        history.append(best_cost)
+ 
+    end_time = time.time()
+    result = build_result(
+        best_path,
+        best_cost,
+        end_time - start_time
+    )
+    result["history"] = history
+    return result
