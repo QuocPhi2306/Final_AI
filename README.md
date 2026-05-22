@@ -2,7 +2,7 @@
 
 ---
 ## Sản phẩm
-[Ấn vào đây để mở app]([https://ten-app.streamlit.app](https://tspsolvebybacktrackingandbatalgorithm.streamlit.app/))
+[Ấn vào đây để mở app](https://tspsolvebybacktrackingandbatalgorithm.streamlit.app/))
 
 # 📌 PHẦN CODE – PHÂN CÔNG & TRIỂN KHAI CHI TIẾT
 
