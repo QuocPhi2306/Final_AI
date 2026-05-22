@@ -1,0 +1,7 @@
+
+========== TSP RESULT ==========
+Best Path: 0 -> 4 -> 1 -> 3 -> 2 -> 5 -> 0
+Best Cost: 242.98
+Execution Time: 0.000173 seconds
+Nodes Visited: 311
+================================
