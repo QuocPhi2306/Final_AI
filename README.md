@@ -1,7 +1,8 @@
 # Đề tài: Giải bài toán người du lịch (traveller problem, travelling salesman problem) bằng Giải thuật quay lui (Backtracking)
 
 ---
-## [Sản phẩm]([https://ten-app.streamlit.app](https://tspsolvebybacktrackingandbatalgorithm.streamlit.app/))
+## Sản phẩm
+[Ấn vào đây để mở app]([https://ten-app.streamlit.app](https://tspsolvebybacktrackingandbatalgorithm.streamlit.app/))
 
 # 📌 PHẦN CODE – PHÂN CÔNG & TRIỂN KHAI CHI TIẾT
 
